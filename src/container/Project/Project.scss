@@ -56,6 +56,7 @@
        color: #000;
        cursor: pointer;
        transition: all 0.3s ease;
+       height: 350px;
 
        &:hover{
            box-shadow: 0 0 25px rgba(0,0,0,0.2);
@@ -72,11 +73,17 @@
         margin: 1rem;
     }
    }
+   .app__project-soon{
+    height: 55vh;
+    h2{
+        transform: translateY(-120px);
+    }
+   }
 }
 
 .app__project-img{
    width: 100%;
-   height: 230px;
+//    height: 230px;
    position: relative;
    
    img{

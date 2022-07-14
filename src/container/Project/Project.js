@@ -32,6 +32,7 @@ const Project = () => {
         setFilterProject(works.filter((work) => work.tags.includes(item)));
       }
     },500)
+    console.log(filterProject, 'setFilterProject')
   }
 
   return (
@@ -51,7 +52,8 @@ const Project = () => {
         transition={{ duration:0.5, delayChildren:0.5 }}
         className='app__project-portfolio'
       >
-        { filterProject.map((works, index)=>(
+        { filterProject.length > 0 ?
+        filterProject.map((works, index)=>(
           <div className="app__project-item app__flex" key={index}>
               <div className="app__project-img app__flex">
                 <img src={urlFor(works.imgUrl)} alt={works.name} />
@@ -87,14 +89,21 @@ const Project = () => {
 
               <div className="app__project-content app__flex">
                 <h4 className="bold-text"> {works.title} </h4>
-                <p className="p-text" style={{matginTop:10}}> {works.description} </p>
+                <p className="p-text" style={{matginTop:10}}> 
+                {
+                  works.description
+                 } </p>
 
                 <div className="app__project-tag app__flex">
                   <p className="p-text"> {works.tags[0]} </p>
                 </div>
               </div>
           </div>
-        )) }
+        )) :
+        <div className="app__project-soon app__flex">
+        <h2 className="head-text">Comming  <span>Soon..</span></h2>
+      </div>  
+      }
       </motion.div>
     </>
   )
