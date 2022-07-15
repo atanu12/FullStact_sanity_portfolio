@@ -52,6 +52,12 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
+          formData.name = ""
+          formData.email = ""
+          formData.message = ""
+          setTimeout(()=>{
+            setIsFromSubmited(false);
+          },5000)
         },
         (error) => {
           console.log(error.text);
